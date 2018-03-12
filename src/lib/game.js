@@ -11,14 +11,14 @@ export const showGuess = (word, guesses) => {
 }
 
 export const isWinner = (word, guesses) => {
-  return showGuess(word, guesses) == word.split('').join(' ') ? true : false
+  return showGuess(word, guesses) === word.split('').join(' ') ? true : false
 }
 
 export const Finish = (word, guesses) => {
   return (wrongGuessCount(word, guesses) === 6 || isWinner(word, guesses))
 }
 
-const wordCandidate = [
+export const wordCandidate = [
   'docker', 'water', 'cookie', 'mandarine', 'watermelon', 'weather',
   'wallet', 'orange', 'friendship', 'grandmother', 'shower', 'urban',
   'lottery', 'ginger', 'chocolate', 'plumber', 'nurse', 'aloha', 'table',
