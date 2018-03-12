@@ -1,37 +1,33 @@
 //need to refactor + (finish, randomWord..)
 
-function wrongGuessCount(word, guesses) {
-  var characters = guesses.filter( guess => word.indexOf(guess) === -1 )
+export const wrongGuessCount = (word, guesses) => {
+  const characters = guesses.filter( guess => word.indexOf(guess) === -1 )
   return characters.length
 }
 
-console.log('test wrong guesses: ', wrongGuessCount('hello', ['e', 'd', 'x', 'o']) === 2)
-
-
-function showGuess(word, guesses) {
-  var show_array = word.split('').map( char => guesses.includes(char)? char : '_' )
+export const showGuess = (word, guesses) => {
+  const show_array = word.split('').map( char => guesses.includes(char)? char : '_' )
   return show_array.join(' ')
 }
 
-console.log('test show guess 1:', showGuess('hello', ['l']) === '_ _ l l _')
-console.log('test show guess 2:', showGuess('hello', ['l', 'a', 'e']) === '_ e l l _')
-
-
-function isWinner(word, guesses) {
+export const isWinner = (word, guesses) => {
   return showGuess(word, guesses) == word.split('').join(' ') ? true : false
 }
 
-console.log('test winner 1:', !isWinner('hello', ['e', 'x']))
-console.log('test winner 2:', isWinner('hello', ['o', 'l', 'e', 'h']))
-
-
-function next(word, guesses) {
-  if (wrongGuessCount(word, guesses) < 6)
-    isWinner(word, guesses)
-    ? console.log("you win")
-    : console.log("you lost")
-
-  rl.question('next letter? ', answer => {
-      console.log('player wrote:', answer)
-    })
+export const Finish = (word, guesses) => {
+  return (wrongGuessCount(word, guesses) === 6 || isWinner(word, guesses))
 }
+
+const wordCandidate = [
+  'docker', 'water', 'cookie', 'mandarine', 'watermelon', 'weather',
+  'wallet', 'orange', 'friendship', 'grandmother', 'shower', 'urban',
+  'lottery', 'ginger', 'chocolate', 'plumber', 'nurse', 'aloha', 'table',
+  'amsterdam', 'seoul', 'shanghai', 'earth', 'planet', 'green', 'singer',
+  'candy', 'libstick', 'eyeshadow', 'denim', 'notebook', 'laptop'
+]
+
+export const randomWord = (wordCandidate) => {
+  return wordCandidate[Math.floor(Math.random() * wordCandidate.length)]
+}
+
+//Do i need more function?... think!
