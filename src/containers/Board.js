@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import Title from '../components/Title'
 import './Board.css'
 
 class Board extends PureComponent {
@@ -6,7 +7,6 @@ class Board extends PureComponent {
     return (
       <div>
         <Title content="Ginger hangman" />
-        <ShowGuess />
         <ul className="left" id="head">
             (<img src="https://imageshack.com/a/img924/43/v3X4aD.gif" alt="head"/>)
           }
