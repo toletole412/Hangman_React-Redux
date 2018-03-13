@@ -1,0 +1,13 @@
+
+button.letterStyle {
+  font-Size: '20px';
+  font-weight: 'bold';
+  height: '50px';
+  margin: '2px';
+  width: '50px'
+}
+
+div.rowStyle {
+  justify-content: 'center';
+  align-items:'center'
+}
