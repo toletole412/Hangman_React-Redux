@@ -1,4 +1,4 @@
-//need to refactor + (finish, randomWord..)
+
 
 export const wrongGuessCount = (word, guesses) => {
   const characters = guesses.filter( guess => word.indexOf(guess) === -1 )
@@ -29,5 +29,3 @@ export const wordCandidate = [
 export const randomWord = (wordCandidate) => {
   return wordCandidate[Math.floor(Math.random() * wordCandidate.length)]
 }
-
-//Do i need more function?... think!
