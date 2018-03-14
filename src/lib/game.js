@@ -15,7 +15,7 @@ export const isWinner = (word, guesses) => {
 }
 
 export const Finish = (word, guesses) => {
-  return (wrongGuessCount(word, guesses) === 6 || isWinner(word, guesses))
+  return (wrongGuessCount(word, guesses) === 6)
 }
 
 export const wordCandidate = [
