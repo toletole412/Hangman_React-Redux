@@ -5,10 +5,13 @@ import { guess } from '../actions/game'
 import { showGuess } from '../lib/game'
 import './Guess.css'
 
+
+
 class Guess extends PureComponent {
   static propTypes = {
     word: PropTypes.string.isRequired,
-    guesses: PropTypes.arrayOf(PropTypes.string).isRequired
+    guesses: PropTypes.arrayOf(PropTypes.string).isRequired,
+    guess: PropTypes.func.isRequired
   }
 
   handleChange = (e) => {
@@ -18,15 +21,14 @@ class Guess extends PureComponent {
   }
 
   render() {
-    const { word, guesses } = this.props
     return (
       <div>
-        <label>
+        <label className="ShowGuess">
           guess:
           <input type="text" onChange={this.handleChange} />
         </label>
         <ul className="ShowGuess">
-          { showGuess(word, guesses) }
+          { showGuess(this.props.word, this.props.guesses) }
         </ul>
       </div>
     )

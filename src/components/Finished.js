@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { isWinner, Finish } from '../lib/game'
-import CreateGameButton from './CreateGameButton'
 import './Finished.css'
 
 export class Finished extends PureComponent {
@@ -12,29 +11,22 @@ export class Finished extends PureComponent {
   }
 
   renderFinished = () => {
-    const { word, guesses } = this.props
-
-    if (isWinner(word, guesses))
+    if (isWinner(this.props.word, this.props.guesses))
       return (
         <div className="Finished">
           <div className="dialog">
             <h1>Well Done!</h1>
             <p>Congrats on finishing the game!</p>
-            <div className="actions">
-              <CreateGameButton label="Play again!" />
-            </div>
           </div>
         </div>)
 
-    if (Finish(word, guesses))
+    if (Finish(this.props.word, this.props.guesses))
       return (
         <div className="Finished">
           <div className="dialog">
             <h1>Poor you!</h1>
             <p>try again?</p>
-            <div className="actions">
-              <CreateGameButton label="Play again!" />
-            </div>
+            <img src="https://imagizer.imageshack.com/v2/1024x768q90/923/x5uF2K.jpg" />
           </div>
         </div>)
     return null
@@ -43,7 +35,7 @@ export class Finished extends PureComponent {
   render() {
     return(
         <div>
-          {this.renderFinished()}
+          {this.renderFinished(this.props.word, this.props.guesses)}
         </div>
     )
   }

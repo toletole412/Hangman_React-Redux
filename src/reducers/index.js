@@ -1,5 +1,5 @@
-import word from './questionWord'
 import guesses from './guess'
+import word from './word'
 
 export default {
   word,
